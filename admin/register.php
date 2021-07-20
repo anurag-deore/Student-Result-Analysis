@@ -1,18 +1,18 @@
 <?php
 include '../path.php';
-$title = 'Faculty Login | SRA';
+$title = 'Admin Registration | SRA';
 
 session_start();
-$msg;
+$msg = "";
 if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == "faculty") {
-        header("location: " . FACULTY . "dashboard.php");
+    if ($_SESSION['role'] == "admin") {
+        header("location: " . ADMIN . "dashboard.php");
     } else {
         $msg = "Username or password is incorrect !";
     }
 }
-if (isset($_POST['faculty_login'])) {
-    $usertype = 'faculty';
+if (isset($_POST['login'])) {
+    $usertype = 'admin';
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $password = sha1($password);
@@ -25,12 +25,11 @@ if (isset($_POST['faculty_login'])) {
 
     session_regenerate_id();
     $_SESSION['username'] = $row['username'];
-    $_SESSION['name'] = $row['name'];
     $_SESSION['role'] = $row['usertype'];
     session_write_close();
 
-    if ($result->num_rows == 1 && $_SESSION['role'] == "faculty") {
-        header("location: " . FACULTY . "dashboard.php");
+    if ($result->num_rows == 1 && $_SESSION['role'] == "admin") {
+        header("location: " . ADMIN . "dashboard.php");
     } else {
         $msg = "Username or password is incorrect !";
     }
@@ -100,15 +99,12 @@ if (isset($_POST['faculty_login'])) {
     <div class="global-container">
         <div class="card shadow login-form">
             <div class="card-body p-4">
-                <h3 class="card-title">Faculty Login</h3>
+                <h3 class="card-title">Admin Registration</h3>
                 <hr>
-                <?php if (isset($msg)) {
-                    echo '<div class="alert alert-danger">' . $msg . '</div>';
-                } ?>
                 <div class="card-text">
                     <form class="row g-3 needs-validation" action="" method="POST" novalidate>
                         <div class="col-12">
-                            <label for="usernameValidation" class="form-label">SDRN</label>
+                            <label for="usernameValidation" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="usernameValidation" required>
                             <div class="invalid-feedback">Cannot be empty</div>
                         </div>
@@ -118,11 +114,10 @@ if (isset($_POST['faculty_login'])) {
                             <div class="invalid-feedback">Cannot be empty</div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-outline-primary w-100" name="faculty_login" value="Faculty_login" type="submit">Log In</button>
+                            <button class="btn btn-outline-primary w-100" name="login" value="Login" type="submit">Log In</button>
                         </div>
                         <div class="col-12">
-                            Don't have a account ? <a href="<?php echo FACULTY . 'register.php'; ?>">Sign Up</a>
-                            <a class="float-end" href="<?php echo STUDENT . 'login.php'; ?>">Student Login</a>
+                            Back To <a href="<?php echo ADMIN . 'login.php'; ?>">Login</a>
                         </div>
                     </form>
                 </div>
@@ -147,5 +142,5 @@ if (isset($_POST['faculty_login'])) {
     </script>
 
     <?php
-    include './_footer.php';
+    include './__footer.php';
     ?>

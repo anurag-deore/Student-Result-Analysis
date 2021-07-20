@@ -20,6 +20,9 @@ body {
 .gradient-4 {
   background: linear-gradient(to left, #f12711, #f5af19);
 }
+
+/* dashboard cards */
+
 .dashboard .card {
   position: relative;
   color: #fff;
@@ -47,7 +50,55 @@ body {
 
 .dashboard .card-img-holder {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 40px;
+  bottom: 0;
+  user-select: none;
+  transform: scale(2) !important;
   height: 100%;
+}
+
+/* admin manage user cards */
+.manageboard .card {
+  position: relative;
+  border-radius: 0.8em;
+  transition: all 0.5s ease;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.manageboard .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  border-radius: 0.8rem;
+}
+.manageboard .card-title i {
+  transform: scale(3);
+  opacity: 0.3;
+  margin-left: 3rem;
+  margin-top: -1rem;
+  font-size: 2rem;
+}
+.manageboard .count {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.manageboard .count .count--number {
+  font-size: 3rem;
+}
+.manageboard .count .count--title {
+  font-size: medium;
+}
+.manageboard .moreInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
 }

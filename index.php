@@ -44,15 +44,18 @@ $title = 'Student Result Analysis';
             width: 100%;
             user-select: none;
         }
+        .ft{
+            font-family: "Gilroy";
+        }
     </style>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-md-6 px-4 px-md-0">
-                <h2>Student Result Analysis</h2>
+                <h2 class="ft">Student Result Analysis</h2>
                 <div class="mt-4 d-flex flex-column flex-md-row ">
                     <a href="<?php echo STUDENT . 'login.php'; ?>" class="rounded-pill mt-3 mt-md-0 me-0 me-md-3 btn btn-outline-primary">Student Login</a>
                     <a href="<?php echo FACULTY . 'login.php'; ?>" class="rounded-pill mt-3 mt-md-0 me-0 me-md-3 btn btn-outline-primary">Faculty Login</a>
-                    <a href="<?php echo FACULTY . 'login.php'; ?>" class="rounded-pill mt-3 mt-md-0 me-0 me-md-3 btn btn-outline-primary">Admin Login</a>
+                    <a href="<?php echo ADMIN . 'login.php'; ?>" class="rounded-pill mt-3 mt-md-0 me-0 me-md-3 btn btn-outline-primary">Admin Login</a>
                 </div>
             </div>
             <div class="col d-none d-md-block">

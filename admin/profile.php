@@ -1,7 +1,5 @@
 <?php
 include './_header.php';
-$namearr = explode(" ", $_SESSION['name']);
-$email = strtolower(substr($namearr[0], 0, 3)) .".". strtolower(substr($namearr[1], 0, 3)) .".rt". substr($_SESSION['username'], 0, 2) . "@rait.ac.in";
 ?>
 <style>
     .image {
@@ -37,11 +35,11 @@ $email = strtolower(substr($namearr[0], 0, 3)) .".". strtolower(substr($namearr[
                 <form class="row g-3 mt-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="bi bi-person-badge "></i></span>
-                        <input type="text" class="form-control" value="<?php echo  $_SESSION['username'];  ?>">
+                        <input type="text" class="form-control" value="<?php echo  $_SESSION['name'];  ?>">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="bi bi-envelope "></i></span>
-                        <input type="text" class="form-control" value="<?php echo  $email;  ?>">
+                        <input type="text" class="form-control" value="anu.deo.rt17@rait.ac.in">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="bi bi-telephone "></i></span>

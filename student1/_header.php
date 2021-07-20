@@ -5,12 +5,8 @@ error_reporting(E_NOTICE && E_WARNING);
 
 include '../path.php';
 
-if (!isset($_SESSION['username']) || $_SESSION['role'] != "faculty") {
-    if ($_SESSION['role'] != "faculty") {
-        header("location:" . STUDENT);
-    } else {
-        header("location:" . HOME);
-    }
+if (!isset($_SESSION['username']) || $_SESSION['role'] != "student") {
+    header("location:" . HOME);
 }
 ?>
 
@@ -25,12 +21,11 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != "faculty") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script>
     <link rel="stylesheet" href="<?php echo STYLESHEETS . 'style.css'; ?>">
     <title><?php echo $title ?></title>
     <style>
         body {
-            background-color: <?php echo $theme['secondary'] ?>;
+            background-color: <?php echo $theme['primary'] ?>;
             color: <?php echo $theme['text'] ?>;
         }
 
@@ -38,14 +33,23 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != "faculty") {
         .dropdown-toggle::after {
             color: <?php echo $theme['text'] ?>;
         }
+
+        .cstyle .card {
+            transition: all ease-in 0.2s;
+        }
+
+        .cstyle .card:hover {
+            transform: scale(1.04);
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg shadow-sm" style="background-color: <?php echo $theme['primary'] ?>;">
+    <!-- Image and text -->
+    <nav class="navbar navbar-light navbar-expand-lg shadow-sm" style="background-color: <?php echo $theme['secondary'] ?>;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?php echo FACULTY . 'dashboard.php'; ?>">
-                <img src="<?php echo ASSETS . $theme['logo']; ?>" alt="" width="110" class="d-inline-block align-top">
+            <a class="navbar-brand" href="<?php echo STUDENT . 'dashboard.php'; ?>">
+                <img src="http://www.dypatil.edu/wp-content/uploads/2019/11/DY-Patil-University-Logo.png" alt="" width="110" class="d-inline-block align-top">
             </a>
             <div class=" justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
@@ -58,12 +62,14 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != "faculty") {
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="<?php echo FACULTY . 'dashboard.php'; ?>">Dashboard</a></li>
-                            <li><a class="dropdown-item" href="<?php echo FACULTY . 'profile.php'; ?>">Profile</a></li>
-                            <li><a class="dropdown-item" href="<?php echo FACULTY . 'logout.php'; ?>">Logout</a></li>
+                            <li><a class="dropdown-item" href="<?php echo STUDENT . 'dashboard.php'; ?>">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo STUDENT . 'profile.php'; ?>">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo STUDENT . 'logout.php'; ?>">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- <div class="py-3 my-4"></div> -->

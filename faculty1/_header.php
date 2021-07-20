@@ -25,12 +25,11 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != "faculty") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script>
     <link rel="stylesheet" href="<?php echo STYLESHEETS . 'style.css'; ?>">
     <title><?php echo $title ?></title>
     <style>
         body {
-            background-color: <?php echo $theme['secondary'] ?>;
+            background-color: <?php echo $theme['primary'] ?>;
             color: <?php echo $theme['text'] ?>;
         }
 
@@ -42,7 +41,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != "faculty") {
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg shadow-sm" style="background-color: <?php echo $theme['primary'] ?>;">
+    <nav class="navbar navbar-light navbar-expand-lg shadow-sm" style="background-color: <?php echo $theme['secondary'] ?>;">
         <div class="container-fluid">
             <a class="navbar-brand" href="<?php echo FACULTY . 'dashboard.php'; ?>">
                 <img src="<?php echo ASSETS . $theme['logo']; ?>" alt="" width="110" class="d-inline-block align-top">

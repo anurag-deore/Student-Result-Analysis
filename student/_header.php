@@ -24,18 +24,23 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != "student") {
     <title><?php echo $title ?></title>
     <style>
         body {
-            /* background-color: #F6F6FF; */
-            background-color: #393e46;
+            background-color: <?php echo $theme['primary'] ?>;
+            color: <?php echo $theme['text'] ?>;
+        }
+
+        .bi,
+        .dropdown-toggle::after {
+            color: <?php echo $theme['text'] ?>;
         }
     </style>
 </head>
 
 <body>
     <!-- Image and text -->
-    <nav class="navbar navbar-light navbar-expand-lg shadow-sm" style="background-color: #FFF;">
+    <nav class="navbar navbar-light navbar-expand-lg shadow-sm" style="background-color: <?php echo $theme['secondary'] ?>;">
         <div class="container-fluid">
             <a class="navbar-brand" href="<?php echo STUDENT . 'dashboard.php'; ?>">
-                <img src="http://www.dypatil.edu/wp-content/uploads/2019/11/DY-Patil-University-Logo.png" alt="" width="110" class="d-inline-block align-top">
+                <img src="<?php echo ASSETS . $theme['logo']; ?>" alt="" width="110" class="d-inline-block align-top">
             </a>
             <div class=" justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">

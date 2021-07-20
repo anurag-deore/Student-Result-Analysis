@@ -1,14 +1,18 @@
 <?php
-include './_header.php';
-$namearr = explode(" ", $_SESSION['name']);
-$email = strtolower(substr($namearr[0], 0, 3)) . "." . strtolower(substr($namearr[1], 0, 3)) . ".rt" . substr($_SESSION['username'], 0, 2) . "@rait.ac.in";
+include("./_header.php");
+$conn = mysqli_connect('localhost', 'root', '', 'resultanalysis');
+
+session_start();
 
 $result = mysqli_fetch_aLL(mysqli_query($conn, "Select * from student where ROLL_NO='$_SESSION[username]';"), MYSQLI_ASSOC);
+
+//print_r($result);
+
+
 ?>
+
 <div class="container">
-    <h3 class="my-3">Hi, <?php echo $namearr[1] . " " . $namearr[0]; ?></h3>
-    <hr>
-    <h4 class="mb-3 mt-3"> Your Results </h4>
+    <h1 class="mb-3 mt-3 text-center" style="color: #ded1bd;"> Results Section </h1>
     <div class="cstyle row">
         <?php foreach ($result as $r) { ?>
             <div class="col-md-6 mb-5">
@@ -45,7 +49,3 @@ $result = mysqli_fetch_aLL(mysqli_query($conn, "Select * from student where ROLL
             </div>
         <?php } ?>
     </div>
-
-    <?php
-    include './__footer.php';
-    ?>

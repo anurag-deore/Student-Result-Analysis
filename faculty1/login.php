@@ -5,8 +5,8 @@ $title = 'Faculty Login | SRA';
 session_start();
 $msg;
 if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == "faculty") {
-        header("location: " . FACULTY . "dashboard.php");
+    if ($_SESSION['role'] == "student") {
+        header("location: " . STUDENT . "dashboard.php");
     } else {
         $msg = "Username or password is incorrect !";
     }
